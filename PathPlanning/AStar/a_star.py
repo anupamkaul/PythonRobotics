@@ -229,15 +229,17 @@ class AStarPlanner:
 
         return motion
 
-
+import random
 def main():
     print(__file__ + " start!!")
 
     # start and goal position
     sx = 10.0  # [m]
     sy = 10.0  # [m]
-    gx = 50.0  # [m]
-    gy = 50.0  # [m]
+    #gx = 50.0  # [m]
+    gx = random.randint(30.0, 60.0)  # [m]
+    #gy = 50.0  # [m]
+    gy = random.randint(-10.0, 60.0)  # [m]
     grid_size = 2.0  # [m]
     robot_radius = 1.0  # [m]
 
