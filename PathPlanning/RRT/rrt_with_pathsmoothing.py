@@ -120,7 +120,8 @@ def main():
         (7, 5, 2),
         (9, 5, 2)
     ]  # [x,y,size]
-    rrt = RRT(start=[0, 0], goal=[6, 10],
+    #rrt = RRT(start=[0, 0], goal=[6, 10],
+    rrt = RRT(start=[0, 0], goal=[random.randint(6, 10), random.randint(8, 10)],  
               rand_area=[-2, 15], obstacle_list=obstacleList)
     path = rrt.planning(animation=show_animation)
 

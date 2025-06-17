@@ -256,7 +256,8 @@ class RRT:
         return d, theta
 
 
-def main(gx=6.0, gy=10.0):
+#def main(gx=6.0, gy=10.0):
+def main(gx=random.randint(6, 10), gy=random.randint(8, 10)):
     print("start " + __file__)
 
     # ====Search Path with RRT====
@@ -276,7 +277,7 @@ def main(gx=6.0, gy=10.0):
     if path is None:
         print("Cannot find path")
     else:
-        print("found path!!")
+        print("found rrt based path!!")
 
         # Draw final path
         if show_animation:
