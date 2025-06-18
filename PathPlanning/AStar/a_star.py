@@ -233,51 +233,58 @@ import random
 def main():
     print(__file__ + " start!!")
 
-    # start and goal position
-    sx = 10.0  # [m]
-    sy = 10.0  # [m]
-    #gx = 50.0  # [m]
-    gx = random.randint(30.0, 60.0)  # [m]
-    #gy = 50.0  # [m]
-    gy = random.randint(-10.0, 60.0)  # [m]
-    grid_size = 2.0  # [m]
-    robot_radius = 1.0  # [m]
+    for runs in range(5):
 
-    # set obstacle positions
-    ox, oy = [], []
-    for i in range(-10, 60):
-        ox.append(i)
-        oy.append(-10.0)
-    for i in range(-10, 60):
-        ox.append(60.0)
-        oy.append(i)
-    for i in range(-10, 61):
-        ox.append(i)
-        oy.append(60.0)
-    for i in range(-10, 61):
-        ox.append(-10.0)
-        oy.append(i)
-    for i in range(-10, 40):
-        ox.append(20.0)
-        oy.append(i)
-    for i in range(0, 40):
-        ox.append(40.0)
-        oy.append(60.0 - i)
+        print("\nrun ", runs+1, " of 5:")
+        # start and goal position
+        sx = 10.0  # [m]
+        sy = 10.0  # [m]
+        #gx = 50.0  # [m]
+        gx = random.randint(30.0, 60.0)  # [m]
+        #gy = 50.0  # [m]
+        gy = random.randint(-10.0, 60.0)  # [m]
+        grid_size = 2.0  # [m]
+        robot_radius = 1.0  # [m]
 
-    if show_animation:  # pragma: no cover
-        plt.plot(ox, oy, ".k")
-        plt.plot(sx, sy, "og")
-        plt.plot(gx, gy, "xb")
-        plt.grid(True)
-        plt.axis("equal")
+        # set obstacle positions
+        ox, oy = [], []
+        for i in range(-10, 60):
+            ox.append(i)
+            oy.append(-10.0)
+        for i in range(-10, 60):
+            ox.append(60.0)
+            oy.append(i)
+        for i in range(-10, 61):
+            ox.append(i)
+            oy.append(60.0)
+        for i in range(-10, 61):
+            ox.append(-10.0)
+            oy.append(i)
+        for i in range(-10, 40):
+            ox.append(20.0)
+            oy.append(i)
+        for i in range(0, 40):
+            ox.append(40.0)
+            oy.append(60.0 - i)
 
-    a_star = AStarPlanner(ox, oy, grid_size, robot_radius)
-    rx, ry = a_star.planning(sx, sy, gx, gy)
+        if show_animation:  # pragma: no cover
+            plt.plot(ox, oy, ".k")
+            plt.plot(sx, sy, "og")
+            plt.plot(gx, gy, "xb")
+            plt.grid(True)
+            plt.axis("equal")
 
-    if show_animation:  # pragma: no cover
-        plt.plot(rx, ry, "-r")
-        plt.pause(0.001)
-        plt.show()
+        a_star = AStarPlanner(ox, oy, grid_size, robot_radius)
+        rx, ry = a_star.planning(sx, sy, gx, gy)
+
+        if show_animation:  # pragma: no cover
+            plt.plot(rx, ry, "-r")
+            plt.pause(0.001)
+            plt.show()
+
+            # execute when close plt window (user)
+            plt.pause(0.001)
+            plt.close()
 
 
 if __name__ == '__main__':
