@@ -15,6 +15,9 @@ Reference: P. I. Corke, "Robotics, Vision & Control", Springer 2017,
 import matplotlib.pyplot as plt
 import numpy as np
 import math
+
+import sys, os
+sys.path.append( os.path.join( os.path.dirname(os.path.abspath(__file__)),  '../../'))
 from utils.angle import angle_mod
 
 
